@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: feedapp
+  labels:
+    app: feedapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: feedapp
+  template:
+    metadata:
+      labels:
+        app: feedapp
+    spec:
+      containers:
+      - name: feed-service-api
+        image: swapnaudacity/feed-service-api
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 3
+          periodSeconds: 3
