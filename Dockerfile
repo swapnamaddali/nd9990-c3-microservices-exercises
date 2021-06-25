@@ -2,7 +2,7 @@
 FROM node:13
 
 # Create app directory
-WORKDIR /feed-ms/src/app
+WORKDIR /feed-ms
 
 # Install app dependencies by copying
 # package.json and package-lock.json

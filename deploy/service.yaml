@@ -4,7 +4,7 @@ metadata:
   labels:
     app: feedapp
   name: feedapp-svc
-  namespace: default
+  namespace: feedapp-namespace
   selfLink: /api/v1/namespaces/default/services/feedapp-svc
 spec:
   ports:
