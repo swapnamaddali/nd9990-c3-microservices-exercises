@@ -14,6 +14,4 @@ RUN npm run build
 
 EXPOSE 8080
 
-RUN 
-
 CMD [ "node", "./www/server.js"]
