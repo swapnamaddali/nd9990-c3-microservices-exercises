@@ -8,9 +8,9 @@ metadata:
   selfLink: /api/v1/namespaces/default/services/udafrontend-svc
 spec:
   ports:
-  - port: 8080
+  - port: 80
     protocol: TCP
-    targetPort: 8080
+    targetPort: 4200
   selector:
     app: udafrontend
   sessionAffinity: None
