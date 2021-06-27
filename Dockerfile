@@ -1,5 +1,5 @@
 # Use NodeJS base image
-FROM node:13
+FROM node:13-alpine As builder
 
 # Create app directory
 WORKDIR /uda-front/src/app
@@ -15,10 +15,8 @@ RUN npm install
 # Copy app source
 COPY . .
 
-RUN npm run build
+RUN npm run build --prod
 
-# Bind the port that the image will run on
-EXPOSE 4200
+FROM nginx:alpine
 
-# Define the Docker image's behavior at runtime
-CMD ["npm", "run", "start"]
+COPY --from=builder /uda-front/src/app/www/ /usr/share/nginx/html
