@@ -15,7 +15,7 @@ spec:
         service: reverseproxy
     spec:
       containers:
-      - image: swapnaudacity/udagram-reverse-proxy
+      - image: swapnaudacity/udagram-reverse-proxy:latest
         name: reverseproxy
         imagePullPolicy: Always          
         resources:
