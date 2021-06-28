@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udafrontend
+  labels:
+    app: udafrontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udafrontend
+  template:
+    metadata:
+      labels:
+        app: udafrontend
+    spec:
+      containers:
+      - name: udagram-frontend
+        image: swapnaudacity/udagram-frontend
+        ports:
+        - containerPort: 80

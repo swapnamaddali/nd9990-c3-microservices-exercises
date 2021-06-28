@@ -31,9 +31,16 @@ export class ApiService {
     this.httpOptions.headers = this.httpOptions.headers.append('Authorization', `jwt ${token}`);
     this.token = token;
   }
-
+  
   get(endpoint): Promise<any> {
     const url = `${API_HOST}${endpoint}`;
+    /*var url = `${API_HOST}${endpoint}`;
+    if (endpoint.startsWith("/users")) {
+      url = `http://a0a365d5ab5474e3aa9e84e79e45f591-1224055798.us-east-1.elb.amazonaws.com:8080/api/v0${ endpoint }`;
+    } else {
+      url = `http://ad4fa462296164546a722129790aa183-1200521113.us-east-1.elb.amazonaws.com:8080/api/v0${ endpoint }`;
+      //url = `http://localhost:8080/api/v0${ endpoint }`;
+    }*/
     const req = this.http.get(url, this.httpOptions).pipe(map(ApiService.extractData));
 
     return req
@@ -45,6 +52,14 @@ export class ApiService {
   }
 
   post(endpoint, data): Promise<any> {
+
+    /*var url = `${API_HOST}${endpoint}`;
+    if (endpoint.startsWith("/users")) {
+      url = `http://a0a365d5ab5474e3aa9e84e79e45f591-1224055798.us-east-1.elb.amazonaws.com:8080/api/v0${ endpoint }`;
+    } else {
+      url = `http://ad4fa462296164546a722129790aa183-1200521113.us-east-1.elb.amazonaws.com:8080/api/v0${ endpoint }`;
+      //url = `http://localhost:8080/api/v0${ endpoint }`;
+    }*/
     const url = `${API_HOST}${endpoint}`;
     return this.http.post<HttpEvent<any>>(url, data, this.httpOptions)
             .toPromise()
