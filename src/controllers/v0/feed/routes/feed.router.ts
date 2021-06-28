@@ -77,7 +77,7 @@ router.post('/',
       const savedItem = await item.save();
 
       savedItem.url = AWS.getGetSignedUrl(savedItem.url);
-      console.log("Signed URL from AWS S3: " + savedItem.url);
+      //console.log("Signed URL from AWS S3: " + savedItem.url);
       res.status(201).send(savedItem);
     });
 

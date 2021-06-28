@@ -20,14 +20,14 @@ export const s3 = new AWS.S3({
 // Generates an AWS signed URL for retrieving objects
 export function getGetSignedUrl( key: string ): string {
   const signedUrlExpireSeconds = 60 * 5;
-  console.log("Bucket name ===> " + config.aws_media_bucket);
-  var params = {
-    Bucket: config.aws_media_bucket
-   };
-  s3.getBucketCors(params, function(err, data) {
-    if (err) console.log(err, err.stack); // an error occurred
-    else     console.log(data);           // successful response
-  });
+  // console.log("Bucket name ===> " + config.aws_media_bucket);
+  // var params = {
+  //   Bucket: config.aws_media_bucket
+  //  };
+  // s3.getBucketCors(params, function(err, data) {
+  //   if (err) console.log(err, err.stack); // an error occurred
+  //   else     console.log(data);           // successful response
+  // });
 
   return s3.getSignedUrl('getObject', {
     Bucket: config.aws_media_bucket,

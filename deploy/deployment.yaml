@@ -27,4 +27,4 @@ spec:
           periodSeconds: 3
         envFrom:
           - configMapRef:
-              name: svc-env-file
+              name: svc-env-config
